@@ -1,0 +1,6 @@
+# Wokwi Library List
+# See https://docs.wokwi.com/guides/libraries
+
+Adafruit BMP085 Library
+DHT sensor library
+Adafruit Unified Sensor

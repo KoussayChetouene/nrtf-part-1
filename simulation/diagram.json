@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "board-bmp180", "id": "bmp1", "top": -128.96, "left": -105.34, "attrs": {} },
+    {
+      "type": "wokwi-gas-sensor",
+      "id": "gas1",
+      "top": 72.8,
+      "left": -217.9,
+      "rotate": 90,
+      "attrs": {}
+    },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -220.5, "left": 253.8, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "bmp1:VCC", "esp:3V3", "red", [ "h0" ] ],
+    [ "bmp1:GND", "esp:GND.2", "black", [ "h0" ] ],
+    [ "bmp1:SCL", "esp:22", "green", [ "h48", "v9.79", "h211.2", "v67.2" ] ],
+    [ "bmp1:SDA", "esp:23", "green", [ "h38.4", "v9.79", "h201.6" ] ],
+    [ "gas1:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "gas1:GND", "esp:CMD", "black", [ "v22.1", "h6.3" ] ],
+    [ "gas1:AOUT", "esp:34", "green", [ "v0" ] ],
+    [ "esp:26", "gas1:DOUT", "green", [ "h-110.21", "v67.2", "h-19.2" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v-96", "h-422.4", "v144" ] ],
+    [ "dht1:GND", "esp:CMD", "black", [ "v345.6", "h-345.6", "v-48" ] ],
+    [ "dht1:SDA", "esp:4", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
